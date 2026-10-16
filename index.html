@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f4f7ff" />
+  <title>九九おぼえMATH</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <h1>九九おぼえMATH</h1>
+  </header>
+
+  <main>
+    <section id="config" class="panel" aria-label="あそびのせってい">
+      <div class="controls">
+        <label class="field">
+          <span>れべる</span>
+          <select id="level">
+            <option value="beginner">しょきゅう（しき ⇔ はいれつ）</option>
+            <option value="intermediate" selected>ちゅうきゅう（しき ⇔ こたえ）</option>
+            <option value="advanced">じょうきゅう（いろいろ）</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>だんのえらびかた</span>
+          <select id="mode">
+            <option value="single">すきなだん</option>
+            <option value="2-5">２〜５のだん</option>
+            <option value="6-9">６〜９のだん</option>
+            <option value="all">ぜんぶのだん</option>
+          </select>
+        </label>
+
+        <label id="singleLabel" class="field">
+          <span>えらぶだん</span>
+          <input type="number" id="singleDan" min="1" max="9" value="3" inputmode="numeric" />
+        </label>
+
+        <button id="startBtn" class="start-button" type="button">はじめる</button>
+      </div>
+
+      <div class="stats" aria-label="あそびのようす">
+        <div class="stat">
+          <span class="stat-label">とくてん</span>
+          <strong id="score">0</strong>
+        </div>
+        <div class="stat">
+          <span class="stat-label">せいかい</span>
+          <strong id="matches">0</strong>
+        </div>
+        <div class="stat">
+          <span class="stat-label">のこりじかん</span>
+          <strong id="remaining">60びょう</strong>
+        </div>
+      </div>
+    </section>
+
+    <section id="board" class="quiz" aria-label="もんだい">
+      <p class="empty-state">だんをえらんで「はじめる」をおしてね。</p>
+      <span id="message" class="message" role="status" aria-live="polite" hidden></span>
+    </section>
+  </main>
+
+  <template id="cardTemplate">
+    <button class="answer-card" type="button"></button>
+  </template>
+</body>
+</html>
